@@ -1,0 +1,26 @@
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+
+<app-payment>
+
+</app-payment>
+
+<div *ngFor="let item of paymentOptions; let i=index">
+  <label>{{item.name}}</label>
+  <input type="radio" [value]="item.value" [checked]="item.checked" formControlName="paymentOption" />
+</div>
+
+<span class="error-msg" *ngIf="isFormSubmitted && myForm.controls['paymentOption'].errors?.required">
+Please select any option above!
+</span>
+
+<button [disabled]="!(myForm.get('paymentOption')).valid" type="submit" color="danger" expand="block" >Submit</button>
+
+<p class="error-msg" *ngIf="(myForm.get('paymentOption')).valid; else loggedOut"> The value is: 
+{{(myForm.get('paymentOption')).value}}
+</p>
+
+<ng-template #loggedOut>
+<p>The value is: -</p>
+</ng-template>
+
+</form>
