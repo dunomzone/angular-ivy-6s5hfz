@@ -65,3 +65,9 @@ export class AppComponent {
   }
 
 }
+
+export interface IOption {
+  name: string,
+  value: string,
+  checked: boolean
+}

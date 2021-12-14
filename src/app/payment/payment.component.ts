@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AppComponent } from '../app.component';
+import { AppComponent, IOption } from '../app.component';
 
 @Component({
   selector: 'app-payment',
@@ -9,16 +9,8 @@ import { AppComponent } from '../app.component';
 })
 export class PaymentComponent implements OnInit {
   @Input() paymentForm: FormGroup;
-  option: {
-    name: string;
-    value: string;
-    checked: boolean;
-  };
-  options: {
-    name: string;
-    value: string;
-    checked: boolean;
-  }[];
+  option: IOption;
+  options: IOption[];
   isFormSubmitted: boolean;
 
   constructor(private paymentService: AppComponent) {}
