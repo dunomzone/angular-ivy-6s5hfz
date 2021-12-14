@@ -9,7 +9,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class AppComponent {
   title = 'angular-checkbox-validation';
 
-  myForm: FormGroup;
+  checkoutForm: FormGroup;
+  optionsForm: FormGroup;
   isFormSubmitted = false;
 
   paymentOptions = [
@@ -25,23 +26,32 @@ export class AppComponent {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.createMyForm();
+    this.createCheckoutForm();
   }
 
-  createMyForm() {
-    this.myForm = this.fb.group({
-      paymentOption: [null, Validators.required]
+  createCheckoutForm() {
+    // this.checkoutForm = this.fb.group({
+    //   optionsForm: this.fb.group({
+    //     option: [null, Validators.required]
+    //   }),
+    //   addressForm: this.fb.group({
+    //     address: [null, Validators.required]
+    //   })
+    // })
+    this.optionsForm = this.fb.group({
+      option: [null, Validators.required]
     })
+
   }
 
   submitForm() {
     this.isFormSubmitted = true;
-    console.log(this.myForm.value)
-    if (!this.myForm.valid) {
+    console.log(this.checkoutForm.value)
+    if (!this.checkoutForm.valid) {
       console.log('Please provide all the required values!')
       return false;
     } else {
-      console.log(this.myForm.value)
+      console.log(this.checkoutForm.value)
     }
   }
 
@@ -49,7 +59,7 @@ export class AppComponent {
     let getRadio = null;
     this.paymentOptions.forEach(o => {
       if (o.value !== null) {
-        this.myForm.get('myForm').get('paymentOptions').patchValue(o.value.toString());
+        this.checkoutForm.get('optionsForm').get('paymentOptions').patchValue(o.value.toString());
       }
     });
   }
