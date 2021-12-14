@@ -38,7 +38,7 @@ export class AppComponent {
     //     address: [null, Validators.required]
     //   })
     // })
-    this.optionsForm = this.fb.group({
+    this.checkoutForm = this.fb.group({
       option: [null, Validators.required]
     })
 
