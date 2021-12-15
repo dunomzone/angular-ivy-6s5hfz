@@ -17,10 +17,11 @@
       </p>
 
       <button
-        [disabled]="!checkoutForm.get('optionForm').valid"
-        type="submit"
-        color="danger"
-        expand="block"
+      type="submit"
+      color="danger"
+      expand="block"
+      [disabled]="!checkoutForm.get('optionForm').valid"
+      (click)="submitForm()"
       >
         Submit
       </button>

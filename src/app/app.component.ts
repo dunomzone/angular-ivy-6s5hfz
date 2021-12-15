@@ -59,6 +59,7 @@ export class AppComponent {
     this.paymentOptions.forEach(o => {
       if (o.value !== null) {
         this.checkoutForm.get('optionsForm').get('paymentOptions').patchValue(o.value.toString());
+        console.log(this.checkoutForm.value)
       }
     });
   }
