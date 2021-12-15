@@ -9,19 +9,5 @@ payment works!
     <input type="radio" [value]="option.value" [checked]="option.checked" formControlName="optionForm" />
     <label>{{option.name}}</label>
   </div>
-  
-  <p class="error-msg" *ngIf="(paymentForm.get('optionForm')).valid; else loggedOut"> The value is: 
-    {{(paymentForm.get('optionForm')).value}}
-  </p>
-  
-  <button [disabled]="!(paymentForm.get('optionForm')).valid" type="submit" color="danger" expand="block" >Submit</button>
-  
-  <span class="error-msg" *ngIf="isFormSubmitted && paymentForm.controls['optionsForm'].errors?.required">
-  Please select any option above!
-  </span>
-  
-  <ng-template #loggedOut>
-  <p>The value is: -</p>
-  </ng-template>
 
 </div>

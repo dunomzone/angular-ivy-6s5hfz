@@ -2,11 +2,42 @@
   <div class="row">
     <div class="col-8">
       <form>
-      
-      <app-payment [paymentForm]="checkoutForm" (ngSubmit)="submitForm()"></app-payment>
-    
+        <app-payment
+          [paymentForm]="checkoutForm"
+          (ngSubmit)="submitForm()"
+        ></app-payment>
       </form>
 
+      <p
+        class="error-msg"
+        *ngIf="checkoutForm.get('optionForm').valid; else loggedOut"
+      >
+        The value is:
+        {{ checkoutForm.get('optionForm').value }}
+      </p>
+
+      <button
+        [disabled]="!checkoutForm.get('optionForm').valid"
+        type="submit"
+        color="danger"
+        expand="block"
+      >
+        Submit
+      </button>
+
+      <span
+        class="error-msg"
+        *ngIf="
+          isFormSubmitted &&
+          checkoutForm.controls['optionsForm'].errors?.required
+        "
+      >
+        Please select any option above!
+      </span>
+
+      <ng-template #loggedOut>
+        <p>The value is: -</p>
+      </ng-template>
     </div>
   </div>
 </div>

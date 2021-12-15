@@ -32,7 +32,7 @@ export class AppComponent {
   createCheckoutForm() {
     // this.checkoutForm = this.fb.group({
     //   optionsForm: this.fb.group({
-    //     option: [null, Validators.required]
+    //     optionForm: [null, Validators.required]
     //   }),
     //   addressForm: this.fb.group({
     //     address: [null, Validators.required]
@@ -56,7 +56,6 @@ export class AppComponent {
   }
 
   getChecked() {
-    let getRadio = null;
     this.paymentOptions.forEach(o => {
       if (o.value !== null) {
         this.checkoutForm.get('optionsForm').get('paymentOptions').patchValue(o.value.toString());
