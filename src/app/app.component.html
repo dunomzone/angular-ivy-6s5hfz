@@ -13,7 +13,8 @@
         *ngIf="checkoutForm.get('optionsCheckForm').valid; else loggedOut"
       >
         The value is:
-        {{ checkoutForm.get('optionsCheckForm').value }}
+        {{ checkoutForm.get('optionsCheckForm').get('optionForm').value }} - 
+        {{ checkoutForm.get('optionsCheckForm').get('optionForm').status }}
       </p>
 
       <button
@@ -26,8 +27,15 @@
         Submit
       </button>
 
+      <p>
+      <br>checkoutForm:  {{ checkoutForm.status }}
+      <br>optionsCheckForm:  {{ checkoutForm.get('optionsCheckForm').status }}
+      <br>addressForm:  {{ checkoutForm.get('addressForm').status }}
+      <br>{{ title }}
+      </p>
+
       <span
-        class="error-msg"
+        class="error-msg" 
         *ngIf="
           isFormSubmitted &&
           checkoutForm.controls['optionsCheckForm'].errors?.required

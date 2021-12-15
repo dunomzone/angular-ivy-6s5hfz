@@ -59,11 +59,13 @@ export class AppComponent {
     this.isFormSubmitted = true;
     console.log(this.checkoutForm.value)
     if (!this.checkoutForm.valid) {
-      console.log('Please provide all the required values!')
+      this.title = 'Please provide all the required values!';
+      console.log(this.title)
       return false;
-    } else {
-      console.log(this.checkoutForm.value)
     }
+    // else {
+    //   console.log(this.checkoutForm.value)
+    // }
   }
 
   getChecked() {
