@@ -77,6 +77,11 @@ export class AppComponent {
     });
   }
 
+  getReset() {
+    this.checkoutForm.reset();
+  }
+
+
 }
 
 export interface IOption {
