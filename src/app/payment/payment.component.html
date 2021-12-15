@@ -4,17 +4,17 @@ payment works!
 
 <div class="mt-4"[formGroup]="paymentForm">
   <h4 class="mb-3">Choose your payment option</h4>
-  <div class="row" formGroupName="option"></div>
+  <div class="row" formGroupName="optionForm"></div>
   <div *ngFor="let option of options; let i=index">
-    <input type="radio" [value]="option.value" [checked]="option.checked" formControlName="option" />
+    <input type="radio" [value]="option.value" [checked]="option.checked" formControlName="optionForm" />
     <label>{{option.name}}</label>
   </div>
   
-  <p class="error-msg" *ngIf="(paymentForm.get('option')).valid; else loggedOut"> The value is: 
-    {{(paymentForm.get('option')).value}}
+  <p class="error-msg" *ngIf="(paymentForm.get('optionForm')).valid; else loggedOut"> The value is: 
+    {{(paymentForm.get('optionForm')).value}}
   </p>
   
-  <button [disabled]="!(paymentForm.get('option')).valid" type="submit" color="danger" expand="block" >Submit</button>
+  <button [disabled]="!(paymentForm.get('optionForm')).valid" type="submit" color="danger" expand="block" >Submit</button>
   
   <span class="error-msg" *ngIf="isFormSubmitted && paymentForm.controls['optionsForm'].errors?.required">
   Please select any option above!

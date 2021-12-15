@@ -39,7 +39,7 @@ export class AppComponent {
     //   })
     // })
     this.checkoutForm = this.fb.group({
-      option: [null, Validators.required]
+      optionForm: [null, Validators.required]
     })
 
   }
