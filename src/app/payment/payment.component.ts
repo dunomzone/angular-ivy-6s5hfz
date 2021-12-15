@@ -9,14 +9,13 @@ import { AppComponent, IOption } from '../app.component';
 })
 export class PaymentComponent implements OnInit {
   @Input() paymentForm: FormGroup;
-  option: IOption;
+  // option: IOption;
   options: IOption[];
-  isFormSubmitted: boolean;
 
   constructor(private paymentService: AppComponent) {}
 
   ngOnInit() {
     this.options = this.paymentService.paymentOptions;
-    this.isFormSubmitted = this.paymentService.isFormSubmitted;
+    console.log(this.options)
   }
 }
