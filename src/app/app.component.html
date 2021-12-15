@@ -27,6 +27,16 @@
         Submit
       </button>
 
+      <button class="ml-3"
+      type="submit"
+      color="danger"
+      expand="block"
+      [disabled]="!checkoutForm.get('optionsCheckForm').valid"
+      (click)="getChecked()"
+      >
+        Reset
+      </button>
+
       <p>
       <br>checkoutForm:  {{ checkoutForm.status }}
       <br>optionsCheckForm:  {{ checkoutForm.get('optionsCheckForm').status }}
