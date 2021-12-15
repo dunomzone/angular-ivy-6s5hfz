@@ -3,24 +3,24 @@
     <div class="col-8">
       <form>
         <app-payment
-          [paymentForm]="checkoutForm"
+          [paymentForm]="optionsForm"
           (ngSubmit)="submitForm()"
         ></app-payment>
       </form>
 
       <p
         class="error-msg"
-        *ngIf="checkoutForm.get('optionForm').valid; else loggedOut"
+        *ngIf="checkoutForm.get('optionsCheckForm').valid; else loggedOut"
       >
         The value is:
-        {{ checkoutForm.get('optionForm').value }}
+        {{ checkoutForm.get('optionsCheckForm').value }}
       </p>
 
       <button
       type="submit"
       color="danger"
       expand="block"
-      [disabled]="!checkoutForm.get('optionForm').valid"
+      [disabled]="!checkoutForm.get('optionsCheckForm').valid"
       (click)="submitForm()"
       >
         Submit
@@ -30,7 +30,7 @@
         class="error-msg"
         *ngIf="
           isFormSubmitted &&
-          checkoutForm.controls['optionForm'].errors?.required
+          checkoutForm.controls['optionsCheckForm'].errors?.required
         "
       >
         Please select any option above!

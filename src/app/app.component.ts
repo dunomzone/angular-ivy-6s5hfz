@@ -9,9 +9,20 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class AppComponent {
   title = 'angular-checkbox-validation';
 
-  checkoutForm: FormGroup;
-  optionsForm: FormGroup;
+  // checkoutForm: FormGroup;
+  // optionsForm: FormGroup;
   isFormSubmitted = false;
+
+  optionsForm = this.fb.group({
+    optionForm: [null, Validators.required]
+  })
+
+  checkoutForm = this.fb.group({
+    optionsCheckForm: this.optionsForm,
+    addressForm: this.fb.group({
+      address: [null, Validators.required]
+    })
+  })
 
   paymentOptions = [
     { name: 'Cash Payment', value: '100CP', checked: false },
@@ -26,7 +37,7 @@ export class AppComponent {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.createCheckoutForm();
+    // console.clear();
   }
 
   createCheckoutForm() {
@@ -38,9 +49,9 @@ export class AppComponent {
     //     address: [null, Validators.required]
     //   })
     // })
-    this.checkoutForm = this.fb.group({
-      optionForm: [null, Validators.required]
-    })
+    // this.checkoutForm = this.fb.group({
+    //   optionForm: [null, Validators.required]
+    // })
 
   }
 
